@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <script type="text/javascript" src="js/login_ajax.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+  
+</head>
+<style>
+body{
+color:red;
+}
+.title{
+color:chartreuse;
+}
+</style>
+<body>
+    <form>
+        <h1 class="title">欢迎登陆</h1>
+        <table>
+            <tr>
+                <td class="tdx">用户名：</td>
+                <td><input type="text" id="username" name="username" value=""/>
+                    <span style="color:red"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdx">密&nbsp;&nbsp; 码：</td>
+                <td><input type="password" id="password" name="password"/>
+                <span style="color:red"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" onclick="dologin()" value="登陆"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

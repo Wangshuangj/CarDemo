@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+	<script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+	<!--bootstrap-table-->
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.14.2/bootstrap-table.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.14.2/bootstrap-table.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.14.2/locale/bootstrap-table-zh-CN.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="js/css/jquery-ui.css">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/regist.js"></script>
+	<script type="text/javascript" src="js/edits.js"></script>
+	<script type="text/javascript" src="js/query.js"></script>
+	<script type="text/javascript" src="js/car.js"></script>
+    <script type="text/javascript" src="js/page.js"></script>
+	<link rel="stylesheet" type="text/css" href="js/css/common.css">
+	<link rel="stylesheet" type="text/css" href="js/css/index2.css">
+
+
+	
+<style>
+body
+{
+	background-color:#b0c4de;
+}
+.dropdown 
+{
+	color:red;
+	text-align:left;
+}
+#dropdownMenu1 {color:green;font-style:italic;}
+
+/*#myModal*/
+/*{display:block;width: 100%;}*/
+
+</style>
+	
+	
+</head>
+
+
+
+<body>
+<div id="head">
+<div class="dropdown">
+	
+	所属供应商
+	<button type="button" class="btn dropdown-toggle" id="suplier"
+			data-toggle="dropdown">
+		主题
+		<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		<li role="presentation" >
+			<a role="menuitem" tabindex="-1" href="#">Java</a>
+		</li>
+		<li role="presentation">
+			<a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+		</li>
+		<li role="presentation">
+			<a role="menuitem" tabindex="-1" href="#">
+				数据通信/网络
+			</a>
+		</li>
+	</ul>
+	
+</div>
+
+<p style="color:sienna">车牌号<input type="text" id="numberplate"></p>
+	
+<div class="dropdown">
+	厂牌
+	<button type="button" class="btn dropdown-toggle" id="label"
+			data-toggle="dropdown">
+		全部
+		<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		<li role="presentation" >
+			<a role="menuitem" tabindex="-1" href="#">Java</a>
+		</li>
+		<li role="presentation">
+			<a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+		</li>
+		<li role="presentation">
+			<a role="menuitem" tabindex="-1" href="#">
+				数据通信/网络
+			</a>
+		</li>
+	</ul>
+</div>
+</div>
+
+
+
+
+
+<div id="body" style="height: 550px;">
+	<div class="body_one">
+		<div class="left">
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="buttonClick(0)">
+			注册
+		</button>
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="edits" onclick="buttonClick(1)">
+			编辑
+		</button>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+		style="width: 100%">
+			<div class="modal-dialog">
+				<div class="modal-content" style="height:550px;width: 928px;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+						</button>
+						<h4 class="modal-title" id="myModalLabel_add_edit">
+							注册
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div id="all">
+							<div id="body1">
+								<form name="input" id="myForm" action="">
+									<div class="row">
+										<div class="col-xs-4 col-sm-4">
+											车牌号: <input type="text" id="carNumberPlate" name="numberPlate" style="margin-left: 41px;">
+										</div>
+										<div class="col-xs-4 col-sm-4">
+											车辆所有人: <input type="text" name="carOwner">
+										</div>
+										<div class="col-xs-4 col-sm-4 select_div">
+											车牌颜色:
+											<select name="carColor" style="margin-left: 13px;">
+												<option value="0">黄色</option>
+												<option value="1">黑色</option>
+												<option value="2">绿色</option>
+												<option value="3">红色</option>
+											</select>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-4 col-sm-4">
+											发动机号: <input type="text" name="engineNumber" style="margin-left: 28px">
+										</div>
+										<div class="col-xs-4 col-sm-4 select_div">
+											车辆厂牌:
+											<select name="label">
+												<option value="0">现代</option>
+												<option value="1">大众</option>
+												<option value="2">宝马</option>
+												<option value="3">奔驰</option>
+											</select>
+										</div>
+										<div class="col-xs-4 col-sm-4">
+											车辆机架号:
+											<input type="text" name="frameNumber" style="margin-left: 15px;">
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-xs-4 col-sm-4">
+											车辆型号: <input type="text" name="carModel" style="margin-left: 28px">
+										</div>
+										<div class="col-xs-4 col-sm-4 select_div">
+											车辆类型:
+											<select name="carType">
+												<option value="0">轿车</option>
+												<option value="1">货车</option>
+												<option value="2">客车</option>
+												<option value="3">摩托</option>
+											</select>
+										</div>
+										<div class="col-xs-4 col-sm-4">
+											注册日期: <input type="text" name="householdDate" id="Date"><br>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-xs-4 col-sm-4">
+											初次登记日期: <input type="text" name="firstRegistrationDate" id="Date1">
+										</div>
+										<div class="col-xs-4 col-sm-4">
+
+										</div>
+										<div class="col-xs-4 col-sm-4">
+
+										</div>
+									</div>
+								</form>
+								<div id="picture">
+									<form name="form0" id="form0">
+										<input type="file" name="file0" id="file0" multiple="multiple" /><br>
+										<img src="" id="img0" style="width: 20rem;height: 10rem;">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							关闭
+						</button>
+						<button type="button" class="btn btn-primary" onclick="regist()">
+							提交更改
+						</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+        </div>
+		<div class="right">
+			<input type="button" id="query"  value="查询"/>
+		</div>
+	</div>
+	<div class="body_two">
+	<table class="table table-bordered" id="table_server">
+	<thead>
+		<tr>
+			<th></th>
+			<th>车牌号</th>
+			<th>车辆所有人</th>
+			<th>车牌颜色</th>
+			<th>发动机号</th>
+			<th>车辆厂牌</th>
+			<th>车辆机架号</th>
+			<th>车辆型号</th>
+			<th>注册日期</th>
+			<th>车辆类型</th>
+			<th>初次登记日期</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+	</div>
+
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="myDetailModa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+		 style="width: 100%">
+		<div class="modal-dialog">
+			<div class="modal-content" style="height:350px;width: 928px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+					</button>
+					<!--<h4 class="modal-title" id="myModalLabel">-->
+						<!--注册-->
+					<!--</h4>-->
+				</div>
+				<div class="modal-body">
+					<div id="detail">
+						<div id="body1">
+							<form name="input" id="myForm" action="">
+								<div class="row">
+									<div class="col-xs-4 col-sm-4">
+										车牌号: <span class="details" id="detail1">我的第一个标题</span>
+									</div>
+									<div class="col-xs-4 col-sm-4">
+										车辆所有人: <span class="details" id="detail2">我的第一个标题</span>
+									</div>
+									<div class="col-xs-4 col-sm-4 select_div" style="margin-top: 0px;">
+										车牌颜色:<span class="details" id="detail3">我的第一个标题</span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-4 col-sm-4" style="margin-top: 20px;">
+										发动机号: <span class="details" id="detail4">我的第一个标题</span>
+									</div>
+									<div class="col-xs-4 col-sm-4 select_div">
+										车辆厂牌:<span class="details" id="detail5">我的第一个标题</span>
+									</div>
+									<div class="col-xs-4 col-sm-4" style="margin-top: 20px;">
+										车辆机架号:<span class="details" id="detail6">我的第一个标题</span>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-4 col-sm-4" style="margin-top: 20px;">
+										车辆型号: <span class="details" id="detail7">我的第一个标题</span>
+									</div>
+									<div class="col-xs-4 col-sm-4 select_div">
+										车辆类型:<span class="details" id="detail8">我的第一个标题</span>
+									</div>
+									<div class="col-xs-4 col-sm-4" style="margin-top: 20px;">
+										注册日期: <span class="details" id="detail9">我的第一个标题</span>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-4 col-sm-4" style="margin-top: 20px;">
+										初次登记日期: <span class="details" id="detail10">我的第一个标题</span>
+									</div>
+									<div class="col-xs-4 col-sm-4">
+
+									</div>
+									<div class="col-xs-4 col-sm-4">
+
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-4 col-sm-4" style="margin-top: 20px;">
+										备注：
+										<span class="details" id="detail11">我的第一个标题</span>
+									</div>
+									<div class="col-xs-4 col-sm-4">
+
+									</div>
+									<div class="col-xs-4 col-sm-4">
+
+									</div>
+								</div>
+							</form>
+							<!--<div id="picture">-->
+								<!--<form name="form0" id="form0">-->
+									<!--<input type="file" name="file0" id="file0" multiple="multiple" /><br>-->
+									<!--<img src="" id="img0" style="width: 20rem;height: 10rem;">-->
+								<!--</form>-->
+							<!--</div>-->
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						关闭
+					</button>
+					<!--<button type="button" class="btn btn-primary" onclick="regist()">-->
+						<!--提交更改-->
+					<!--</button>-->
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+
+</div>
+
+
+<script>
+   $(function () {
+		$('#myModal').modal('hide')
+		});
+</script>
+<script>
+   $(function () {
+   $('#myModal').on('hide.bs.modal', function () {
+      //alert('嘿，我听说您喜欢模态框...');
+	   })
+   });
+</script>
+
+<!--图片上传-->
+<script>
+	$("#file0").change(function(){
+		var objUrl = getObjectURL(this.files[0]) ;
+		console.log("objUrl = "+objUrl);
+		if (objUrl) {
+			$("#img0").attr("src", objUrl);
+		}
+	}) ;
+	function getObjectURL(file) {
+		var url = null;
+		if (window.createObjectURL!=undefined) {
+			url = window.createObjectURL(file) ;
+		} else if (window.URL!=undefined) {
+			url = window.URL.createObjectURL(file) ;
+		} else if (window.webkitURL!=undefined) {
+			url = window.webkitURL.createObjectURL(file) ;
+		}
+		return url ;
+	}
+</script>
+
+
+
+
+
+
+</body>
+</html>

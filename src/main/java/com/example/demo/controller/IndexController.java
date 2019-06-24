@@ -7,7 +7,7 @@ package com.example.demo.controller;
  */
 
 import com.example.demo.pojo.Car;
-import com.example.demo.pojo.User;
+import com.example.demo.pojo.SysUser;
 import com.example.demo.service.CarService;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.SysResult;
@@ -62,7 +62,7 @@ public class IndexController {
     @ResponseBody
     public SysResult login(String username, String password, HttpSession session) {
         SysResult result = new SysResult();
-        User user = userService.login(username, password);
+        SysUser user = userService.login(username, password);
         if (null == user) {
             result.setStatus(0);
             result.setMsg("登录失败！！！");

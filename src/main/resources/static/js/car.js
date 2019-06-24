@@ -141,7 +141,6 @@ function carEdits() {//详情页面的数据查询，根据id查询
 
 				});
 			}
-			alert("成功");
 		},
 		err: function () {
 			alert("请求失败")
@@ -186,12 +185,11 @@ function regist() {
 			type: "post",
 			data: data,
 			dataType:"json",
-
 			success: function () {
-				alert("修改成功")
+				alert("修改成功");
 			},
 			err: function () {
-				alert("修改失败")
+				alert("修改失败");
 			}
 		});
 

@@ -6,7 +6,7 @@ package com.example.demo.service;/*
  */
 
 import com.example.demo.dao.UserRepository;
-import com.example.demo.pojo.User;
+import com.example.demo.pojo.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +15,13 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User login(String username, String password) {
-        User user = userRepository.login(username,password);
+    public SysUser login(String username, String password) {
+        SysUser user = userRepository.login(username,password);
+        return user;
+    }
+
+    public SysUser selectByName(String s) {
+        SysUser user = userRepository.selectByName(s);
         return user;
     }
 }

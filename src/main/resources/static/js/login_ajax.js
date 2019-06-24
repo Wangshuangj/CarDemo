@@ -20,7 +20,7 @@ function dologin(){
 		success:function(result){
 			//result是服务端返回的数据
 			if(result.status==1){
-				alert("登录成功")
+				alert("登录成功");
 				//location.href="/index2.html";
 				window.location.href="/index";
 

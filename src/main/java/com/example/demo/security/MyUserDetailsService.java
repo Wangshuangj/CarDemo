@@ -21,11 +21,9 @@ import java.util.Collection;
 import java.util.List;
 
 
-@Component
+@Service
 public class MyUserDetailsService implements UserDetailsService {
 //    private Logger logger = LoggerFactory.getLogger(getClass());
-
-
 
     @Autowired
     private RoleService roleService;
@@ -34,11 +32,11 @@ public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private UserService userService;
 
-
     @Override
-    public UserDetails loadUserByUsername(String s) {
+    public UserDetails loadUserByUsername(String username) {
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        SysUser user = userService.selectByName(s);
+        SysUser user = userService.selectByName(username);
+
         System.out.println(user.toString());
 
         // 判断用户是否存在
@@ -57,4 +55,5 @@ public class MyUserDetailsService implements UserDetailsService {
         // 返回UserDetails实现类
         return new User(user.getUsername(), user.getPassword(), authorities);
     }
+
 }

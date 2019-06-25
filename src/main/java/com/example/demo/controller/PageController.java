@@ -30,7 +30,10 @@ public class PageController {
     @ResponseBody
     public Map<String,Object> getAllByBeginNumber(HttpServletRequest req){
         // 查看全部数据执行后端分页查询
-//        Map<String,Integer> queryMap = new HashMap<String,Integer>();
+//        String numberplate = req.getParameter("numberplate");
+//        if (numberplate==null||"".equals(numberplate)){
+//
+//        }
         int pageSize = Integer.parseInt(req.getParameter("pageSize"));
         int pageNumber = Integer.parseInt(req.getParameter("pageNumber"));
 

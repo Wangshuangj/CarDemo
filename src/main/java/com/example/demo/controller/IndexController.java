@@ -89,9 +89,9 @@ public class IndexController {
         if(null != numberplate && !"".equals(numberplate)){
             carList = carService.queryByPlate(numberplate);
         }
-//        else{
-//            carList = carService.queryAll();
-//        }
+        else{
+            carList = carService.queryAll();
+        }
         return carList;
     }
 
@@ -110,7 +110,7 @@ public class IndexController {
             car.setCreateTime(new Date());
             car.setCreator(""+session.getAttribute("username"));//从session中获取用户名
             carService.save(car);
-            return "index2";
+            return "success";
         }else {
             return "fail";//若返回有数据，说明该插入的数据重复了
         }

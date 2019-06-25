@@ -16,23 +16,31 @@ import java.util.List;
 @Repository
 public interface CarRepository extends JpaRepository<Car, Integer> {
 
+    //查询所有车辆信息
     @Query(value = "SELECT * FROM car;", nativeQuery = true)
     List<Car> queryAll();
 
+    //根据车牌号查询车辆信息
     @Query(value = "select * from car where number_plate=?",nativeQuery = true)
     List<Car> queryByPlate(String numberplate);
 
+    //根据id查询车辆信息
     @Query(value = "select * from car where id=?",nativeQuery = true)
     Car queryDetail(Long id);
 
+    //分页时查询总条数
     @Query(value = "select count(id) from car",nativeQuery = true)
     int getCount();
 
+    //分页查询
     @Query(value = "select * from car limit ?,?",nativeQuery = true)
     List<Car> queryPageAll(@Param("beginNumber")int  beginNumber, @Param("pageSize")int pageSize);
 
     @Query(value = "select * from car where number_plate=?",nativeQuery = true)
     Car queryByPlate1(String numberplate);
+
+//    @Query(value = "update car set img_url=?",nativeQuery = true)
+//    void savePath(String upload_path);
 
 //    @Query(value = "",nativeQuery = true)
 //    void updateCar(Car car);

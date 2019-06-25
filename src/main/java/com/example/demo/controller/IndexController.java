@@ -116,6 +116,11 @@ public class IndexController {
         }
     }
 
+    /**
+     * 查询详情
+     * @param id
+     * @return
+     */
     @RequestMapping("/querydetail")
     @ResponseBody
     public Car carEdit(Long id){

@@ -252,6 +252,7 @@ $(function () {
 
     $("#query").click(function() {
         var numberplate = $("#numberplate").val();
+        alert(numberplate);
         $.ajax({
             type: "post",
             url:"/queryCar",

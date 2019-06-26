@@ -33,6 +33,11 @@ public class CarService {
         return carRepository.save(car);
     }
 
+    /**
+     * 查询详情时，实现Redis的缓存，Redis的key为动态传入的id
+     * @param id
+     * @return
+     */
     @Cacheable(value = "carcach",key = "#id")
     public Car queryDetail(Long id) {
         return carRepository.queryDetail(id);

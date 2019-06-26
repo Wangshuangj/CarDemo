@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
+/**
+ * 用户角色对象
+ */
 @Entity
 @Table(name = "role")
 public class Role implements Serializable {

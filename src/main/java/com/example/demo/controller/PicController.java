@@ -7,7 +7,6 @@ package com.example.demo.controller;/*
 
 
 import com.example.demo.dao.CarRepository;
-import com.example.demo.vo.SysResult;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,10 +23,14 @@ public class PicController {
     @Autowired
     private CarRepository carRepository;
 
+    /**
+     * 实现图片上传到本地文件夹
+     * @param file
+     * @return
+     */
     @RequestMapping(value = "/upload")
     @ResponseBody
     public String upload(@RequestParam("file") MultipartFile file) {
-        SysResult result = new SysResult();
         //保存图片到服务器
         String path = "C://Pic/idCards/";
         File filePath = new File(path);
@@ -41,10 +44,9 @@ public class PicController {
         //获取后缀
         String suf = file.getOriginalFilename()
                 .substring(file.getOriginalFilename().indexOf(".") + 1);
-        fileNameA = "upload" +  "." + suf;
-        //将路径存入数据库
+        int random = (int)((Math.random()*9+1)*10000);
+        fileNameA = random +  "." + suf;//给文件名添加一个5位数的随机数前缀
         String upload_path = path+fileNameA;
-//        carRepository.savePath(upload_path);
 
         try {
             FileUtils.writeByteArrayToFile(new File(upload_path),

@@ -1,3 +1,15 @@
+body
+{
+	background-color:#b0c4de;
+}
+.dropdown
+{
+	color:red;
+	text-align:left;
+}
+#dropdownMenu1 {
+	color:green;font-style:italic;
+}
 #head{
 	border: 1px solid black;
 	width: 90%;
@@ -25,7 +37,7 @@
 	height: 10%;
 }
 .left{
-	border:1px solid black;
+	/*border:1px solid black;*/
 	width: 40%;
 	height:100%;
 	display: flex;
@@ -38,13 +50,14 @@
 	height: 100%;
 }
 .right{
-	border:1px solid black;
+	margin-right: -100px;
+	/*border:1px solid black;*/
 	width: 20%;
 	height: 100%;
 	float: right;
 }
 .body_two{
-	border:1px solid black;
+	/*border:1px solid black;*/
 	width: 98%;
 	height: 80%;
 	margin: 0 auto;
@@ -86,4 +99,13 @@
 
 .select_div{
 	margin-top: 22px;
+}
+#query{
+	height: 40px;
+    width: 80px;
+    margin: auto;
+}
+
+.bootstrap-table .fixed-table-pagination > .pagination-detail, .bootstrap-table .fixed-table-pagination > .pagination{
+	margin-bottom: -5px;
 }

@@ -125,7 +125,6 @@ public class IndexController {
     @ResponseBody
     public Car carEdit(Long id){
         Car car1 =  carService.queryDetail(id);
-//        System.out.println(car1);
         return car1;
     }
 
@@ -146,7 +145,7 @@ public class IndexController {
         car.setUpdateTime(new Date());
         car.setId(Long.parseLong(id));
         carService.save(car);
-        return "index2";
+        return "success";
     }
 
 }

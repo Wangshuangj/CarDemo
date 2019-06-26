@@ -9,6 +9,9 @@ package com.example.demo.pojo;/*
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * 用户登录信息对象
+ */
 @Entity
 @Table(name = "user")
 public class SysUser implements Serializable {

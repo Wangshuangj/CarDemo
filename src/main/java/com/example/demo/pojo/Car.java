@@ -10,6 +10,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 车辆信息的实体对象
+ */
 @Entity
 @Table(name = "car")
 public class Car implements Serializable{

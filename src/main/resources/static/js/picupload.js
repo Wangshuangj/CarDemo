@@ -1,4 +1,4 @@
-function upload() {
+function upload() {//图片上传
     var formData = new FormData($("#form1")[0]);
     $.ajax({
         url: '/upload',

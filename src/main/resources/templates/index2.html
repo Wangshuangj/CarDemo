@@ -18,92 +18,18 @@
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/regist.js"></script>
-	<script type="text/javascript" src="js/edits.js"></script>
+	<script type="text/javascript" src="js/detail.js"></script>
 	<script type="text/javascript" src="js/car.js"></script>
     <script type="text/javascript" src="js/page.js"></script>
 	<script type="text/javascript" src="js/picupload.js"></script>
 	<link rel="stylesheet" type="text/css" href="js/css/common.css">
 	<link rel="stylesheet" type="text/css" href="js/css/index2.css">
 
-
-	
-<style>
-body
-{
-	background-color:#b0c4de;
-}
-.dropdown 
-{
-	color:red;
-	text-align:left;
-}
-#dropdownMenu1 {color:green;font-style:italic;}
-
-/*#myModal*/
-/*{display:block;width: 100%;}*/
-
-</style>
-	
-	
 </head>
-
-
-
 <body>
 <div id="head">
-<div class="dropdown">
-	
-	所属供应商
-	<button type="button" class="btn dropdown-toggle" id="suplier"
-			data-toggle="dropdown">
-		主题
-		<span class="caret"></span>
-	</button>
-	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		<li role="presentation" >
-			<a role="menuitem" tabindex="-1" href="#">Java</a>
-		</li>
-		<li role="presentation">
-			<a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
-		</li>
-		<li role="presentation">
-			<a role="menuitem" tabindex="-1" href="#">
-				数据通信/网络
-			</a>
-		</li>
-	</ul>
-	
+	<p style="color:sienna;margin-top: 10px;margin-left: -1110px;">车牌号<input type="text" id="numberplate"></p>
 </div>
-
-<p style="color:sienna">车牌号<input type="text" id="numberplate"></p>
-	
-<div class="dropdown">
-	厂牌
-	<button type="button" class="btn dropdown-toggle" id="label"
-			data-toggle="dropdown">
-		全部
-		<span class="caret"></span>
-	</button>
-	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		<li role="presentation" >
-			<a role="menuitem" tabindex="-1" href="#">Java</a>
-		</li>
-		<li role="presentation">
-			<a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
-		</li>
-		<li role="presentation">
-			<a role="menuitem" tabindex="-1" href="#">
-				数据通信/网络
-			</a>
-		</li>
-	</ul>
-</div>
-</div>
-
-
-
-
-
 <div id="body" style="height: 550px;">
 	<div class="body_one">
 		<div class="left">
@@ -257,9 +183,6 @@ body
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
 					</button>
-					<!--<h4 class="modal-title" id="myModalLabel">-->
-						<!--注册-->
-					<!--</h4>-->
 				</div>
 				<div class="modal-body">
 					<div id="detail">
@@ -338,9 +261,6 @@ body
 					<button type="button" class="btn btn-default" data-dismiss="modal">
 						关闭
 					</button>
-					<!--<button type="button" class="btn btn-primary" onclick="regist()">-->
-						<!--提交更改-->
-					<!--</button>-->
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->

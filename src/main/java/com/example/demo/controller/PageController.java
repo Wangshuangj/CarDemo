@@ -10,9 +10,7 @@ import com.example.demo.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
@@ -26,14 +24,15 @@ public class PageController {
     @Autowired
     private CarService carService;
 
+    /**
+     * 分页查询
+     * @param req
+     * @return
+     */
     @RequestMapping(value="/getPage")
     @ResponseBody
     public Map<String,Object> getAllByBeginNumber(HttpServletRequest req){
         // 查看全部数据执行后端分页查询
-//        String numberplate = req.getParameter("numberplate");
-//        if (numberplate==null||"".equals(numberplate)){
-//
-//        }
         int pageSize = Integer.parseInt(req.getParameter("pageSize"));
         int pageNumber = Integer.parseInt(req.getParameter("pageNumber"));
 

@@ -2,16 +2,16 @@ var submit_type = 0;//0代表新增，1代表编辑
 var hit = "";//全局id的赋值
 
 window.onload = function () {
-	$( "#Date" ).datepicker();
-	$( "#Date1").datepicker();
+	$( "#Date" ).datepicker({dateFormat:"yy-mm-dd"});
+	$( "#Date1").datepicker({dateFormat:"yy-mm-dd"});
 
 }
 
 function hitbutton(event,id) {//单选按钮的绑定，取出id值付给全局变量hit
 	hit = id;
 }
-function carEdits(id) {//编辑时数据回显
-	// var  id = hit;
+function carEdits() {//编辑时数据回显
+	var  id = hit;
 	$.ajax({
 		url: "/querydetail",
 		type: "post",
@@ -78,6 +78,7 @@ function regist() {
 	}
 
 	if(submit_type == 1){//编辑
+
 		var id = hit;
 		var data = $.param({"id":id}) + "&" + $('#myForm').serialize() + "";
 		$.ajax({
@@ -108,16 +109,15 @@ function buttonClick(mark){
 		$(":input","#myForm").not(":button",":reset","hidden","submit","select").val("");
 	}else if(mark==1){
 		$("#myModalLabel_add_edit").html("编辑");
-		var id = hit;
-		if (null==id){
-			//模态框不弹出
-			//模态框关闭事件 模态框id
-			$('#myModalLabel_add_edit').on('hide.bs.modal', function () {
-				alert('请选择一条信息...');
-			})
-		} else {
+		var  id = hit;
+		if (""==id) {
+			alert("请选择一条信息。。。")
+		}else {
 			carEdits(id);//编辑时的数据查询回显
+			$("#myModal").modal("show");
 		}
+
+
 	}
 	submit_type = mark;
 }

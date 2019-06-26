@@ -51,12 +51,13 @@ function editsQuery(event,id,numberplate){
             }
             $("#detail8").html(car1.carType);
 
-            var time=car1.householdDate;
-            var time=car1.firstRegistrationDate;
-            var d = new Date(time);
-            var times=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-            $("#detail9").html(times);
-            $("#detail10").html(times);
+            var time1=car1.householdDate.split("T")[0];
+            var time2=car1.firstRegistrationDate.split("T")[0];
+            // time1 = time.split("T")[0];
+            // var d = new Date(time);
+            // var times=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+            $("#detail9").html(time1);
+            $("#detail10").html(time2);
             $("#detail11").html("无");
         },
         error:function(){

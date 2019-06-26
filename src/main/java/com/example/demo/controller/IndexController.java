@@ -103,7 +103,6 @@ public class IndexController {
     @RequestMapping("/car/regist")
     @ResponseBody
     public String carRegist(Car car,HttpSession session){
-//        List<Car> carList = new ArrayList<>();
         String numberplate = car.getNumberPlate();
         Car carList = carService.queryByPlate1(numberplate);//判断numberplate是否已存在
         if (null ==carList){

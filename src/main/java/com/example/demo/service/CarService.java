@@ -9,6 +9,7 @@ import com.example.demo.dao.CarRepository;
 import com.example.demo.pojo.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,6 +51,7 @@ public class CarService {
      * @param id
      * @return
      */
+    @Cacheable(value = "carcach",key = "#id")
     public Car queryDetail(Long id) {
         return carRepository.queryDetail(id);
     }

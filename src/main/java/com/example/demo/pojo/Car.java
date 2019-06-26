@@ -6,6 +6,8 @@ package com.example.demo.pojo;/*
  */
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -44,14 +46,14 @@ public class Car implements Serializable{
     private String carModel;
 
     @Column(name = "household_date",nullable = false)
-    //@DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date householdDate;
 
     @Column(name = "car_type",nullable = false)
     private int carType;
 
     @Column(name = "first_registration_date",nullable = false)
-    //@DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date firstRegistrationDate;
 
     @Column(name = "img_url")

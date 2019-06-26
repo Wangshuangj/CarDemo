@@ -21,7 +21,7 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
     List<Car> queryAll();
 
     //根据车牌号查询车辆信息
-    @Query(value = "select * from car where number_plate=?",nativeQuery = true)
+    @Query(value = "SELECT * FROM car WHERE number_plate LIKE '%?%';",nativeQuery = true)
     List<Car> queryByPlate(String numberplate);
 
     //根据id查询车辆信息

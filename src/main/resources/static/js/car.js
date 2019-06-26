@@ -25,8 +25,9 @@ function carEdits() {//编辑时数据回显
 				value = obj[x];
 				if (x=="householdDate"||x=="firstRegistrationDate"){//做日期格式数据的判断并转化
 					 var time=obj[x];
-					 var d = new Date(time);
-					 var value=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+					var value = time.split("T")[0];
+					 // var d = new Date(time);
+					 // var value=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 				}
 
 

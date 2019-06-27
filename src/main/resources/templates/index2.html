@@ -39,11 +39,11 @@
 		<button class="btn btn-primary btn-lg" data-toggle="modal"  id="edits" onclick="buttonClick(1)">
 			编辑
 		</button>
-			<div sec:authorize="hasRole('ROLE_HOME')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
-				<p class="bg-info" th:text="${msg.etraInfo}"></p>
+			<div sec:authorize="hasRole('ROLE_USER')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
+				<!--<p class="bg-info" th:text="${msg.etraInfo}"></p>-->
 			</div>
 			<div sec:authorize="hasRole('ROLE_ADMIN')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
-				<p class="bg-info">恭喜您,您有 ROLE_ADMIN 权限 </p>
+				<!--<p class="bg-info">恭喜您,您有 ROLE_ADMIN 权限 </p>-->
 			</div>
 
 		<!-- 模态框（Modal） -->

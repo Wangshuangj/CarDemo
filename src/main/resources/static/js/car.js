@@ -59,7 +59,7 @@ function regist() {
 		if(submit_type == 0){//注册
 			$.ajax({
 				type: "POST",//方法类型
-				url: "/car/regist" ,
+				url: "/caroperate/regist" ,
 				data: $('#myForm').serialize(),//提交序列化表单
 				dataType:"text",
 				success: function (data) {
@@ -83,7 +83,7 @@ function regist() {
 		var id = hit;
 		var data = $.param({"id":id}) + "&" + $('#myForm').serialize() + "";
 		$.ajax({
-			url: "/car/update",
+			url: "/caroperate/update",
 			type: "post",
 			data: data,
 			dataType:"text",

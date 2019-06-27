@@ -21,8 +21,7 @@ function dologin(){
 			//result是服务端返回的数据
 			if(result.status==1){
 				alert("登录成功");
-				//location.href="/index2.html";
-				window.location.href="/car/index";
+				window.location.href="/index";
 
 			}else if(result.status==0){
 				alert(result.message);

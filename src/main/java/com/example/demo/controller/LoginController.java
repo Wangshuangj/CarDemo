@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/car")
+//@RequestMapping("/car")
 public class LoginController {
     @Autowired
     private UserService userService;

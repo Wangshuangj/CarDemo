@@ -7,6 +7,7 @@ package com.example.demo.controller;/*
 
 import com.example.demo.pojo.Car;
 import com.example.demo.pojo.SysUser;
+import com.example.demo.security.CustomUserService;
 import com.example.demo.service.CarService;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.SysResult;
@@ -24,7 +25,7 @@ public class LoginController {
     @Autowired
     private UserService userService;
     @Autowired
-    private CarService carService;
+    private CustomUserService customUserService;
 
     /**
      * 登录
@@ -35,19 +36,20 @@ public class LoginController {
      */
     @RequestMapping("/login")
     @ResponseBody
-    public SysResult login(String username, String password, HttpSession session) {
+    public String login(String username, String password, HttpSession session) {
         SysResult result = new SysResult();
-        SysUser user = userService.login(username, password);
-        if (null == user) {
-            result.setStatus(0);
-            result.setMsg("登录失败！！！");
-            return result;
-        } else {
-            result.setStatus(1);
-            result.setMsg("登录成功！！！");
-            session.setAttribute("username",user.getUsername());
-            return result;
-        }
+        customUserService.loadUserByUsername(username);
+//        if (null == user) {
+//            result.setStatus(0);
+//            result.setMsg("登录失败！！！");
+//            return result;
+//        } else {
+//            result.setStatus(1);
+//            result.setMsg("登录成功！！！");
+//            session.setAttribute("username",user.getUsername());
+//            return result;
+//        }
+        return "success";
     }
 
 

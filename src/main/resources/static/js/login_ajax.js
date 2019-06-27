@@ -16,18 +16,17 @@ function dologin(){
 		url:"/login",
 		type:"get",
 		data:{"username":username,"password":password},
-		dataType:"json",
-		success:function(result){
+		dataType:"text",
+		success:function(data){
 			//result是服务端返回的数据
-			if(result.status==1){
+			if(data=="success"){
 				alert("登录成功");
 				//location.href="/index2.html";
 				window.location.href="/index";
 
-			}else if(result.status==0){
-				alert(result.message);
+			}else {
+				alert("登录失败");
 			}
-			alert(getCookie("loginName"));
 		},
 		error:function(){
 			alert("请求失败!");

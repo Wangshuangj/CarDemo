@@ -25,7 +25,8 @@ public class CustomUserService implements UserDetailsService { //自定义UserDe
     @Autowired
     PermissionRepository permissionDao;
 
-    public UserDetails loadUserByUsername(String username) {
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
         SysUser user = userRepository.selectByName(username);
         if (user != null) {
             List<Permission> permissions = permissionDao.findByAdminUserId(user.getId());
@@ -38,6 +39,7 @@ public class CustomUserService implements UserDetailsService { //自定义UserDe
                     grantedAuthorities.add(grantedAuthority);
                 }
             }
+            System.out.println(grantedAuthorities.get(0));
             return new User(user.getUsername(), user.getPassword(), grantedAuthorities);
         } else {
             throw new UsernameNotFoundException("admin: " + username + " do not exist!");

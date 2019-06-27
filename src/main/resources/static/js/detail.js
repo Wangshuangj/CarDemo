@@ -8,7 +8,7 @@ function editsQuery(event,id,numberplate){
         return
     }
     $.ajax({
-        url:"/querydetail",
+        url:"/car/querydetail",
         type:"post",
         data:{"id":id},
         dataType:"json",

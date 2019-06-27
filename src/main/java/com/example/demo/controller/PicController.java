@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 
 @Controller
+@RequestMapping("/car")
 public class PicController {
     @Autowired
     private CarRepository carRepository;

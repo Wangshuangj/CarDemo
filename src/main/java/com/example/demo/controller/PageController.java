@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,7 @@ import java.util.Map;
  * 用于分页逻辑
  */
 @Controller
+@RequestMapping("/car")
 public class PageController {
     @Autowired
     private CarService carService;
@@ -51,4 +53,39 @@ public class PageController {
         responseMap.put("total", total);
         return responseMap;
     }
+
+
+    /**
+     * 查询所有和根据车牌号查询数据
+     * @param request
+     * @return carList  数据的List集合
+     */
+    @RequestMapping("/queryCar")
+    @ResponseBody
+    public List<Car> carQueryAll(HttpServletRequest request){
+        String numberplate = request.getParameter("numberplate").toString();
+        List<Car> carList = new ArrayList<>();
+        if(null != numberplate && !"".equals(numberplate)){
+            carList = carService.queryByPlate(numberplate);
+        }
+        else{
+            carList = carService.queryAll();
+        }
+        return carList;
+    }
+
+    /**
+     * 查询详情
+     * @param id
+     * @return
+     */
+    @RequestMapping("/querydetail")
+    @ResponseBody
+    public Car carEdit(Long id){
+        Car car1 =  carService.queryDetail(id);
+        return car1;
+    }
+
+
+
 }

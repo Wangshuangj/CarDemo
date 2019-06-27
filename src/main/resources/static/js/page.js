@@ -4,7 +4,7 @@ $(function () {
             //contentType: "application/x-www-form-urlencoded",
             // 查询传入起始页码数，后台需要计算起始查询条数
         method: 'get',
-        url : 'http://localhost:8080/getPage',
+        url : 'http://localhost:8080/car/getPage',
         formatNoMatches : function() {
             return '无符合条件的记录';
         },

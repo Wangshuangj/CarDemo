@@ -1,7 +1,7 @@
 function upload() {//图片上传
     var formData = new FormData($("#form1")[0]);
     $.ajax({
-        url: '/upload',
+        url: '/car/upload',
         type: 'POST',
         data: formData,
         async: false,

@@ -2,7 +2,8 @@
 SQLyog v10.2 
 MySQL - 5.5.27 : Database - car
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -22,7 +23,7 @@ DROP TABLE IF EXISTS `car`;
 
 CREATE TABLE `car` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `number_plate` varchar(50) NOT NULL,
+  `number_plate` varchar(50) NOT NULL,/*车牌号*/
   `car_owner` varchar(50) NOT NULL,
   `car_color` int(11) NOT NULL,
   `engine_number` varchar(50) NOT NULL,
@@ -52,7 +53,7 @@ DROP TABLE IF EXISTS `role`;
 
 CREATE TABLE `role` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,/*角色名*/
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -89,6 +90,84 @@ CREATE TABLE `user_role` (
 /*Data for the table `user_role` */
 
 insert  into `user_role`(`id`,`user_id`,`role_id`) values (1,1,1),(2,2,2),(3,3,1);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+/*
+SQLyog v10.2
+MySQL - 5.5.27 : Database - car
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`car` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `car`;
+
+/*Table structure for table `sys_permission` */
+
+DROP TABLE IF EXISTS `sys_permission`;
+
+CREATE TABLE `sys_permission` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  `url` varchar(50) DEFAULT NULL,
+  `pid` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+/*Data for the table `sys_permission` */
+
+insert  into `sys_permission`(`id`,`name`,`url`,`pid`) values (1,'ROLE_ADMIN','/car/**',NULL),(2,'ROLE_ADMIN','/caroperate/**',NULL),(3,'ROLE_USER','/car/**',NULL);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+/*
+SQLyog v10.2
+MySQL - 5.5.27 : Database - car
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`car` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `car`;
+
+/*Table structure for table `sys_permission_role` */
+
+DROP TABLE IF EXISTS `sys_permission_role`;
+
+CREATE TABLE `sys_permission_role` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `role_id` bigint(20) DEFAULT NULL,
+  `permission_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+/*Data for the table `sys_permission_role` */
+
+insert  into `sys_permission_role`(`id`,`role_id`,`permission_id`) values (1,1,1),(2,1,2),(3,2,3);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

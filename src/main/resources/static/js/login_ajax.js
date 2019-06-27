@@ -13,7 +13,7 @@ function dologin(){
 	}
 	//发送异步请求
 	$.ajax({
-		url:"/login",
+		url:"/car/login",
 		type:"get",
 		data:{"username":username,"password":password},
 		dataType:"json",
@@ -22,7 +22,7 @@ function dologin(){
 			if(result.status==1){
 				alert("登录成功");
 				//location.href="/index2.html";
-				window.location.href="/index";
+				window.location.href="/car/index";
 
 			}else if(result.status==0){
 				alert(result.message);

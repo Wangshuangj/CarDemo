@@ -13,7 +13,7 @@ function hitbutton(event,id) {//单选按钮的绑定，取出id值付给全局�
 function carEdits() {//编辑时数据回显
 	var  id = hit;
 	$.ajax({
-		url: "/querydetail",
+		url: "/car/querydetail",
 		type: "post",
 		data: {"id": id},
 		dataType: "json",
@@ -83,7 +83,7 @@ function regist() {
 		var id = hit;
 		var data = $.param({"id":id}) + "&" + $('#myForm').serialize() + "";
 		$.ajax({
-			url: "/update",
+			url: "/car/update",
 			type: "post",
 			data: data,
 			dataType:"text",

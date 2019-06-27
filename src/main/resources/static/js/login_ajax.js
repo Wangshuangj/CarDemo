@@ -13,7 +13,7 @@ function dologin(){
 	}
 	//发送异步请求
 	$.ajax({
-		url:"/car/login",
+		url:"/login",
 		type:"get",
 		data:{"username":username,"password":password},
 		dataType:"json",

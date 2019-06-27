@@ -39,9 +39,4 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
     @Query(value = "select * from car where number_plate=?",nativeQuery = true)
     Car queryByPlate1(String numberplate);
 
-//    @Query(value = "update car set img_url=?",nativeQuery = true)
-//    void savePath(String upload_path);
-
-//    @Query(value = "",nativeQuery = true)
-//    void updateCar(Car car);
 }

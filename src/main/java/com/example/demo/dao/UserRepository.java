@@ -25,4 +25,5 @@ public interface UserRepository extends JpaRepository<SysUser, Integer>{
 
     @Query(value = "SELECT * FROM user WHERE user_name=?", nativeQuery = true)
     SysUser selectByName(String s);
+
 }

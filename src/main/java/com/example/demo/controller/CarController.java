@@ -1,10 +1,4 @@
-package com.example.demo.controller;/*
- *
- *用户 DELL
- *邮箱：921017769@qq.com
- * 编码时间 ：2019/6/27
- */
-
+package com.example.demo.controller;
 import com.example.demo.pojo.Car;
 import com.example.demo.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
+/**
+ * @author 王双江
+ * 邮箱：921017769@qq.com
+ * 编码时间 ：2019/6/27
+ */
 @Controller
 @RequestMapping("/caroperate")
 public class CarController {
@@ -31,14 +30,17 @@ public class CarController {
     @ResponseBody
     public String carRegist(Car car, HttpSession session){
         String numberplate = car.getNumberPlate();
-        Car carList = carService.queryByPlate1(numberplate);//判断numberplate是否已存在
+        //判断numberplate是否已存在
+        Car carList = carService.queryByPlate1(numberplate);
         if (null ==carList){
             car.setCreateTime(new Date());
-            car.setCreator(""+session.getAttribute("username"));//从session中获取用户名
+            //从session中获取用户名
+            car.setCreator(""+session.getAttribute("username"));
             carService.save(car);
             return "success";
         }else {
-            return "fail";//若返回有数据，说明该插入的数据重复了
+            //若返回有数据，说明该插入的数据重复了
+            return "fail";
         }
     }
 

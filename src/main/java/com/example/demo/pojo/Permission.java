@@ -1,12 +1,11 @@
-package com.example.demo.pojo;/*
+package com.example.demo.pojo;
+import javax.persistence.*;
+/**
  *
- *用户 DELL
+ *@author 王双江
  *邮箱：921017769@qq.com
  * 编码时间 ：2019/6/26
  */
-
-import javax.persistence.*;
-
 @Entity
 @Table(name = "Sys_permission")
 public class Permission {

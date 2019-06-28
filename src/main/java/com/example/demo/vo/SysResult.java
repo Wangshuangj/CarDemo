@@ -8,38 +8,49 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 京淘商城自定义响应结构
+ *
+ *@author 王双江
+ *邮箱：921017769@qq.com
+ * 编码时间 ：2019/6/20
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SysResult implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	// 定义jackson对象
+    /**
+     * 定义jackson对象
+     */
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    // 响应业务状态
-    /*
+
+    /**
+     * 响应业务状态
      * 200	成功
      * 201	错误
      * 400	参数错误
      */
     private Integer status;
 
-    // 响应消息
+    /**
+     * 响应消息
+     */
+
     private String msg;
 
-    // 响应中的数据
+    /**
+     * 响应中的数据
+     */
     private Object data;
 
     public static SysResult build(Integer status, String msg, Object data) {
         return new SysResult(status, msg, data);
     }
 
-    public static SysResult oK(Object data) {
+    public static SysResult ok(Object data) {
         return new SysResult(data);
     }
 
-    public static SysResult oK() {
+    public static SysResult ok() {
         return new SysResult(null);
     }
 

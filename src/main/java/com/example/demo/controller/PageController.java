@@ -1,9 +1,5 @@
-package com.example.demo.controller;/*
- *
- *用户 DELL
- *邮箱：921017769@qq.com
- * 编码时间 ：2019/6/21
- */
+package com.example.demo.controller;
+
 
 import com.example.demo.pojo.Car;
 import com.example.demo.service.CarService;
@@ -18,7 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 用于分页逻辑
+ *用于分页逻辑
+ *@author 王双江
+ *邮箱：921017769@qq.com
+ * 编码时间 ：2019/6/21
  */
 @Controller
 @RequestMapping("/car")
@@ -44,7 +43,7 @@ public class PageController {
         int beginNumber = (pageNumber - 1)* pageSize;
         List<Car> list = carService.queryPageAll(beginNumber,pageSize);
         int total = carService.getCount();
-        Map<String,Object> responseMap = new HashMap<String,Object>();
+        Map<String,Object> responseMap = new HashMap<String,Object>(16);
 
         //key需要与js中 dataField对应，bootStrap默认值为rows
         responseMap.put("rows", list);

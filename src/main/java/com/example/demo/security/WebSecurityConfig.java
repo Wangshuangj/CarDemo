@@ -7,20 +7,22 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Objects;
-
+/**
+ *
+ *@author 王双江
+ *邮箱：921017769@qq.com
+ * 编码时间 ：2019/6/23
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Autowired
-//    private MyFilterSecurityInterceptor myFilterSecurityInterceptor;
 
    @Autowired
-   private CustomUserService customUserService;
+   private CustomUserServiceImpl customUserService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -44,9 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-//                .antMatchers("/car/**","/index","/login").access("hasRole('ADMIN')")
-                .antMatchers("/a").access("hasRole('ADMIN')")
-                .antMatchers("/b").access("hasRole('USER')")
                 .antMatchers("/caroperate/regist","/caroperate/update").access("hasRole('ADMIN')")
                 .anyRequest()
                 .authenticated()
@@ -54,7 +53,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/")
-                .permitAll(); //任何请求,登录后可以访问
+                //任何请求,登录后可以访问
+                .permitAll();
     }
 
     @Override

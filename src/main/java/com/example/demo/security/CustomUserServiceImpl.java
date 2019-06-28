@@ -19,9 +19,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ *
+ *@author 王双江
+ *邮箱：921017769@qq.com
+ * 编码时间 ：2019/6/23
+ */
 @Service
-public class CustomUserService implements UserDetailsService { //自定义UserDetailsService 接口
+public class CustomUserServiceImpl implements UserDetailsService { //自定义UserDetailsService 接口
 
     @Autowired
     UserRepository userRepository;
@@ -33,7 +38,8 @@ public class CustomUserService implements UserDetailsService { //自定义UserDe
         HttpServletRequest request =
                 ((ServletRequestAttributes) RequestContextHolder.
                         getRequestAttributes()).getRequest();
-        HttpSession session=request.getSession();//创建session对象
+        //获取session对象
+        HttpSession session=request.getSession();
         session.setAttribute("username",username);
         SysUser user = userRepository.selectByName(username);
         if (user != null) {

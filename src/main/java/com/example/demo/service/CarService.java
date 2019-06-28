@@ -1,9 +1,4 @@
-package com.example.demo.service;/*
- *
- *用户 DELL
- *邮箱：921017769@qq.com
- * 编码时间 ：2019/6/20
- */
+package com.example.demo.service;
 
 import com.example.demo.dao.CarRepository;
 import com.example.demo.pojo.Car;
@@ -13,6 +8,12 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+/**
+ *
+ *@author 王双江
+ *邮箱：921017769@qq.com
+ * 编码时间 ：2019/6/20
+ */
 
 @Service
 public class CarService {

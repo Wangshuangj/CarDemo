@@ -1,11 +1,8 @@
-package com.example.demo.pojo;/*
- *
- *用户 DELL
- *邮箱：921017769@qq.com
- * 编码时间 ：2019/6/19
- */
+package com.example.demo.pojo;
 
 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -13,7 +10,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 车辆信息的实体对象
+ *车辆信息的实体对象
+ *@author 王双江
+ *邮箱：921017769@qq.com
+ * 编码时间 ：2019/6/19
  */
 @Entity
 @Table(name = "car")
@@ -66,11 +66,9 @@ public class Car implements Serializable{
     private String updator;
 
     @Column(name = "create_time",nullable = false)
-    //@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createTime;
 
     @Column(name = "update_time")
-    //@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date updateTime;
 
 

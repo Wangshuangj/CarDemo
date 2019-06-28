@@ -1,9 +1,4 @@
-package com.example.demo.controller;/*
- *
- *用户 DELL
- *邮箱：921017769@qq.com
- * 编码时间 ：2019/6/24
- */
+package com.example.demo.controller;
 
 
 import com.example.demo.dao.CarRepository;
@@ -17,7 +12,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-
+/**
+ *
+ *@author 王双江
+ *邮箱：921017769@qq.com
+ * 编码时间 ：2019/6/24
+ */
 @Controller
 @RequestMapping("/car")
 public class PicController {
@@ -38,7 +38,7 @@ public class PicController {
         if (!filePath.exists()) {
             filePath.mkdirs();
         }
-        String fileNameA = "";
+        String fileName = "";
         if (file.isEmpty()) {
             return "fail";
         }
@@ -46,16 +46,17 @@ public class PicController {
         String suf = file.getOriginalFilename()
                 .substring(file.getOriginalFilename().indexOf(".") + 1);
         int random = (int)((Math.random()*9+1)*10000);
-        fileNameA = random +  "." + suf;//给文件名添加一个5位数的随机数前缀
-        String upload_path = path+fileNameA;
+        //给文件名添加一个5位数的随机数前缀
+        fileName = random +  "." + suf;
+        String uploadPath = path+fileName;
 
         try {
-            FileUtils.writeByteArrayToFile(new File(upload_path),
+            FileUtils.writeByteArrayToFile(new File(uploadPath),
                     file.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
             return "fail";
         }
-        return upload_path;
+        return uploadPath;
     }
 }

@@ -17,6 +17,6 @@ public interface PermissionRepository extends JpaRepository<Permission, Integer>
     @Query(value = "SELECT * from Sys_permission ;",nativeQuery = true)
     public List<Permission> findAll();
 
-    @Query(value = "SELECT p.* FROM USER u LEFT JOIN user_role sru ON u.id= sru.user_id LEFT JOIN role r ON sru.role_id=r.id LEFT JOIN Sys_permission_role spr ON spr.role_id=r.id LEFT JOIN Sys_permission p ON p.id =spr.permission_id WHERE u.id=2;",nativeQuery = true)
+    @Query(value = "SELECT p.* FROM USER u LEFT JOIN user_role sru ON u.id= sru.user_id LEFT JOIN role r ON sru.role_id=r.id LEFT JOIN Sys_permission_role spr ON spr.role_id=r.id LEFT JOIN Sys_permission p ON p.id =spr.permission_id WHERE u.id=?;",nativeQuery = true)
     public List<Permission> findByAdminUserId(Long userId);
 }

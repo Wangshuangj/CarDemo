@@ -14,14 +14,14 @@ function dologin(){
 	//发送异步请求
 	$.ajax({
 		url:"/login",
-		type:"get",
+		type:"post",
 		data:{"username":username,"password":password},
 		dataType:"text",
 		success:function(data){
 			//result是服务端返回的数据
 			if(data=="success"){
 				alert("登录成功");
-				//location.href="/index2.html";
+				//location.href="/index.html";
 				window.location.href="/index";
 
 			}else {

@@ -66,6 +66,7 @@ public class PageController {
         String numberplate = request.getParameter("numberplate").toString();
         List<Car> carList = new ArrayList<>();
         if(null != numberplate && !"".equals(numberplate)){
+            System.out.println(numberplate);
             carList = carService.queryByPlate(numberplate);
         }
         else{
@@ -85,7 +86,5 @@ public class PageController {
         Car car1 =  carService.queryDetail(id);
         return car1;
     }
-
-
 
 }

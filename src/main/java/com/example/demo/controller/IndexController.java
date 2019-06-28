@@ -7,7 +7,10 @@ package com.example.demo.controller;
  */
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 public class IndexController {
@@ -17,7 +20,7 @@ public class IndexController {
      * 登录页面
      * @return
      */
-    @RequestMapping("/")
+    @GetMapping("/login")
     public String goIndex(){
         return "login";
     }
@@ -26,8 +29,8 @@ public class IndexController {
      * 主页面
      * @return
      */
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public String goIndex2(){
-        return "index2";
+        return "index";
     }
 }

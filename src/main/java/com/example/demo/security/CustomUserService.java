@@ -3,7 +3,6 @@ package com.example.demo.security;
 import com.example.demo.dao.PermissionRepository;
 import com.example.demo.dao.UserRepository;
 import com.example.demo.pojo.Permission;
-import com.example.demo.pojo.Role;
 import com.example.demo.pojo.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -39,22 +38,9 @@ public class CustomUserService implements UserDetailsService { //自定义UserDe
                     grantedAuthorities.add(grantedAuthority);
                 }
             }
-            System.out.println(grantedAuthorities.get(0));
             return new User(user.getUsername(), user.getPassword(), grantedAuthorities);
         } else {
             throw new UsernameNotFoundException("admin: " + username + " do not exist!");
         }
     }
-
-
-    private static List<GrantedAuthority> getAuthorities(List<Role> roles) {
-
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return authorities;
-    }
-
-
 }

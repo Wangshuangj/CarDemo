@@ -13,6 +13,7 @@ import com.example.demo.service.UserService;
 import com.example.demo.vo.SysResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -34,23 +35,12 @@ public class LoginController {
      * @param session
      * @return
      */
-    @RequestMapping("/login")
-    @ResponseBody
-    public String login(String username, String password, HttpSession session) {
-        SysResult result = new SysResult();
-        customUserService.loadUserByUsername(username);
-//        if (null == user) {
-//            result.setStatus(0);
-//            result.setMsg("登录失败！！！");
-//            return result;
-//        } else {
-//            result.setStatus(1);
-//            result.setMsg("登录成功！！！");
-//            session.setAttribute("username",user.getUsername());
-//            return result;
-//        }
-        return "success";
-    }
+//    @PostMapping("/userlogin")
+//    @ResponseBody
+//    public String login(String username, String password, HttpSession session) {
+//        customUserService.loadUserByUsername(username);
+//        return "index2";
+//    }
 
 
 }

@@ -157,7 +157,7 @@ $(function () {
         alert(numberplate);
         $.ajax({
             type: "post",
-            url:"/queryCar",
+            url:"/car/queryCar",
             data:{
                 "numberplate": numberplate
             },

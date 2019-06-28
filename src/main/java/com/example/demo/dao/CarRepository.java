@@ -14,14 +14,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CarRepository extends JpaRepository<Car, Integer> {
+public interface CarRepository extends JpaRepository<Car, String> {
 
     //查询所有车辆信息
     @Query(value = "SELECT * FROM car;", nativeQuery = true)
     List<Car> queryAll();
 
     //根据车牌号查询车辆信息
-    @Query(value = "SELECT * FROM car WHERE number_plate LIKE '%?%';",nativeQuery = true)
+    @Query(value = "SELECT * FROM car WHERE number_plate LIKE %?1%",nativeQuery = true)
     List<Car> queryByPlate(String numberplate);
 
     //根据id查询车辆信息

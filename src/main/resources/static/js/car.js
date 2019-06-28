@@ -65,7 +65,7 @@ function regist() {
 				success: function (data) {
 					if (data=="success"){
 						alert("注册成功");
-						window.location.href="/index";
+						window.location.href="/";
 					}
 
 				},
@@ -90,7 +90,7 @@ function regist() {
 			success: function (data) {
 				if (data=="success"){
 					alert("修改成功");
-					window.location.href="/index";
+					window.location.href="/";
 				}
 			},
 			err: function () {

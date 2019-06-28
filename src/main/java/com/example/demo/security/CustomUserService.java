@@ -12,7 +12,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +30,11 @@ public class CustomUserService implements UserDetailsService { //自定义UserDe
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+        HttpServletRequest request =
+                ((ServletRequestAttributes) RequestContextHolder.
+                        getRequestAttributes()).getRequest();
+        HttpSession session=request.getSession();//创建session对象
+        session.setAttribute("username",username);
         SysUser user = userRepository.selectByName(username);
         if (user != null) {
             List<Permission> permissions = permissionDao.findByAdminUserId(user.getId());

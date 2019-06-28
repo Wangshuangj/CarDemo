@@ -38,12 +38,18 @@
 		<button class="btn btn-primary btn-lg" data-toggle="modal"  id="edits" onclick="buttonClick(1)">
 			编辑
 		</button>
-			<div sec:authorize="hasRole('ROLE_USER')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
-				<!--<p class="bg-info" th:text="${msg.etraInfo}"></p>-->
-			</div>
-			<div sec:authorize="hasRole('ROLE_ADMIN')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
-				<!--<p class="bg-info">恭喜您,您有 ROLE_ADMIN 权限 </p>-->
-			</div>
+			<!--<div sec:authorize="hasRole('ROLE_USER')"> &lt;!&ndash; 用户类型为ROLE_ADMIN 显示 &ndash;&gt;-->
+				<!--&lt;!&ndash;<p class="bg-info" th:text="${msg.etraInfo}"></p>&ndash;&gt;-->
+			<!--</div>-->
+			<!--<div sec:authorize="hasRole('ROLE_ADMIN')"> &lt;!&ndash; 用户类型为ROLE_ADMIN 显示 &ndash;&gt;-->
+				<!--&lt;!&ndash;<p class="bg-info">恭喜您,您有 ROLE_ADMIN 权限 </p>&ndash;&gt;-->
+			<!--</div>-->
+			<sec:authorize access="hasRole('ADMIN')">
+				<td><a href="<c:url value='/caroperate/update' />" class="btn btn-success custom-width">edit</a></td>
+			</sec:authorize>
+			<sec:authorize access="hasRole('USER')">
+				<td><a href="<c:url value='/caroperate/regist' />" class="btn btn-danger custom-width">regist</a></td>
+			</sec:authorize>
 
 		<!-- 模态框（Modal） -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
@@ -129,16 +135,15 @@
 								</form>
 								<!--图片上传-->
 								<div id="picture">
-									<!--<form name="form0" id="form0">-->
-										<!--<input type="file" name="file" id="file" multiple="multiple" onclick="upload()"/><br>-->
-										<!--&lt;!&ndash;<input type="submit" value="上传" onclick="upload()" />&ndash;&gt;-->
-										<!--<img src="" id="img0" style="width: 20rem;height: 10rem;">-->
-									<!--</form>-->
-									<form id="form1">
+									<form id="form1" method="post" onsubmit="upload()">
 										<input type="file" name="file" id="file" />
 										<img src="" id="img0" style="width: 20rem;height: 10rem;">
-										<input type="button" value="上传" onclick="upload()" />
 									</form>
+									<!--<form id="form1" method="get" action="/car/upload">-->
+										<!--<input type="file" name="file" id="file" />-->
+										<!--<img src="" id="img0" style="width: 20rem;height: 10rem;">-->
+										<!--<input type="submit" value="上传" onclick="upload()" />-->
+									<!--</form>-->
 								</div>
 							</div>
 						</div>

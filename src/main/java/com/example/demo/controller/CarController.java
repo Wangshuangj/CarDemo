@@ -30,8 +30,6 @@ public class CarController {
     @RequestMapping("/regist")
     @ResponseBody
     public String carRegist(Car car, HttpSession session){
-        System.out.println(car.getHouseholdDate());
-        System.out.println(car.getImgUrl());
         String numberplate = car.getNumberPlate();
         Car carList = carService.queryByPlate1(numberplate);//判断numberplate是否已存在
         if (null ==carList){
@@ -55,8 +53,10 @@ public class CarController {
     @ResponseBody
     public String updateCar(Car car, HttpSession session, HttpServletRequest request){
         String id =  request.getParameter("id");
+        Car car1 = carService.queryDetail(Long.parseLong(id));
+        car.setCreator(car1.getCreator());
+        car.setCreateTime(car1.getCreateTime());
         car.setCreateTime(new Date());
-        car.setCreator(""+session.getAttribute("username"));
         car.setUpdator(""+session.getAttribute("username"));
         car.setUpdateTime(new Date());
         car.setId(Long.parseLong(id));
